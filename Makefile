@@ -38,7 +38,7 @@ SRCS=$(IJG_SRCS) jpgtranscode.c
 all: jpgsquash.js
 
 jpgsquash.js: $(SRCS) Makefile
-	emcc -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 \
+	emcc -Os -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 \
 		-s EXPORTED_FUNCTIONS="['_jpg_transcode']" \
 		-Wno-shift-negative-value \
 		-o jpgsquash.js $(SRCS)
